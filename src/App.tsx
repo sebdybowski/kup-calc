@@ -50,10 +50,15 @@ function App() {
         }) => {
           let calculatedValue;
 
-          if (values.workingDays && values.daysOff && values?.maxPercent) {
+          if (
+            typeof values.workingDays === 'number' &&
+            typeof values.daysOff === 'number' &&
+            typeof values.maxPercent === 'number'
+          ) {
             calculatedValue = Math.round((
-              (values.workingDays - values.daysOff) / values.workingDays)
-              * values.maxPercent);
+              (values.workingDays - values.daysOff) /
+              values.workingDays
+            ) * values.maxPercent);
           }
 
           return (
