@@ -1,0 +1,11 @@
+main {
+  margin-top: 3rem;
+}
+
+.half {
+  width: 50%;
+
+  @media screen and (max-width: 992px) {
+    width: 100%;
+  }
+}
