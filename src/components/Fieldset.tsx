@@ -2,7 +2,7 @@ import { Field } from "formik";
 
 interface Props {
   name: string,
-  label: string,
+  label: string | React.ReactElement,
   error?: string,
   value?: number | string,
   touched?: boolean
@@ -13,7 +13,7 @@ const isFieldInvalid = (
   error: boolean,
   value: boolean
 ): string | undefined => {
-  if (value) return "false";
+  if (value && !error) return "false";
   if (touched && error) return "true";
   return undefined;
 };
@@ -27,7 +27,6 @@ export const Fieldset = ({ name, label, error, value, touched }: Props) => (
     <Field
       name={name}
       type="number"
-      placeholder="1-100"
       aria-invalid={isFieldInvalid(!!touched, !!error, !!value)}
     />
     {touched && error && (
