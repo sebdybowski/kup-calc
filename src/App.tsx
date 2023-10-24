@@ -46,7 +46,8 @@ function App() {
         {({
           touched,
           errors,
-          values
+          values,
+          isValid
         }) => {
           let calculatedValue;
 
@@ -94,7 +95,7 @@ function App() {
                 />
               </Form>
               {
-                calculatedValue &&
+                isValid && calculatedValue &&
                 <mark>
                   Your calculated KUP percentage this month is: <strong>~{calculatedValue}%</strong>
                 </mark>
